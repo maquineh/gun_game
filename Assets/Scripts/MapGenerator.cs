@@ -9,6 +9,7 @@ public class MapGenerator : MonoBehaviour {
 
     public Transform navmeshmaskPrefab;
     public Transform navmeshFloor;
+	public Transform mapFloor;
     public Transform obstaculoPrefab;
     
     [Range(0,1)]
@@ -39,7 +40,7 @@ public class MapGenerator : MonoBehaviour {
         tileMap = new Transform[currentMap.mapSize.x, currentMap.mapSize.y];
         System.Random rnd = new System.Random(currentMap.seed);
 
-        GetComponent<BoxCollider>().size = new Vector3(currentMap.mapSize.x * tileSize, .05f, currentMap.mapSize.y * tileSize);
+        //GetComponent<BoxCollider>().size = new Vector3(currentMap.mapSize.x * tileSize, .05f, currentMap.mapSize.y * tileSize);
 
         //gera as coordenadas do mapa
         todosTilesCoordenadas = new List<Coordenadas>();
@@ -114,9 +115,8 @@ public class MapGenerator : MonoBehaviour {
         }
 
         embaralhadoOpenTilesCoords = new Queue<Coordenadas>(Utility.ShuffleArray(todasCoordenadasEmAberto.ToArray(), currentMap.seed));
-
-
-        //gera o navmesh mask
+		
+        //gera o navmesh mask dinamico
         Transform maskLeft = Instantiate(navmeshmaskPrefab, Vector3.left * (currentMap.mapSize.x + maxMapSize.x) / 4f * tileSize, Quaternion.identity) as Transform;
         maskLeft.parent = mapHolder;
         maskLeft.localScale = new Vector3((maxMapSize.x - currentMap.mapSize.x) / 2f, 1, currentMap.mapSize.y) * 5;
@@ -136,6 +136,8 @@ public class MapGenerator : MonoBehaviour {
 
 
         navmeshFloor.localScale = new Vector3(maxMapSize.x, maxMapSize.y) * tileSize;
+
+		mapFloor.localScale = new Vector3(currentMap.mapSize.x * tileSize, currentMap.mapSize.y * tileSize);
     }
 
 
