@@ -11,6 +11,7 @@ public class MapGenerator : MonoBehaviour {
     public Transform navmeshFloor;
 	public Transform mapFloor;
     public Transform obstaculoPrefab;
+    public Transform[] obstaculosTumbaPrefab;
     
     [Range(0,1)]
     public float outlinePercent;
@@ -95,8 +96,12 @@ public class MapGenerator : MonoBehaviour {
                 float obstacleheight = Mathf.Lerp(currentMap.minObstacleHeight, currentMap.maxObstacleHeight, (float) rnd.NextDouble());
                 
                 Vector3 obstaculoPosition  = CoordToPosition(randomCoord.x, randomCoord.y);
-                
-                Transform newObstaculo = Instantiate(obstaculoPrefab, obstaculoPosition + Vector3.up * obstacleheight/2, Quaternion.identity) as Transform;
+
+                int random = Random.Range(0, 10);
+
+               Transform currentObstacle = obstaculosTumbaPrefab[random];
+
+                Transform newObstaculo = Instantiate(/*obstaculoPrefab*/currentObstacle, obstaculoPosition /*+ Vector3.up * obstacleheight/2*/, Quaternion.identity) as Transform;
                 newObstaculo.parent = mapHolder;
                 newObstaculo.localScale = new Vector3((1 - outlinePercent) * tileSize, obstacleheight, (1 - outlinePercent) * tileSize);
                 

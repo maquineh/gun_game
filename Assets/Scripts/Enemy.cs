@@ -25,8 +25,8 @@ public class Enemy : LivingObject {
 
 	public enum State{Idle, Chasing, Attacking};
 	State atualState;
-
 	void Awake(){
+        //anim = GetComponent<Animator>();
 		pathFinder = GetComponent<NavMeshAgent>();
 		if (GameObject.FindGameObjectWithTag("Player")!=null){
 			hasTarget = true;
@@ -43,11 +43,9 @@ public class Enemy : LivingObject {
 	protected override void Start () {
 		base.Start ();
         if (hasTarget){
-
             atualState = State.Chasing;
-
+            //anim.Play("ZombieRun");
             targetObject.OnDeath += OnTargetDeath;
-	
 		    StartCoroutine (UpdatePath());
         }
 	}

@@ -46,6 +46,8 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Editor\MapEditor.cs" />
+     <None Include="Assets\Gravestones and Obelisks\Assets Standard\Prefabs\Recolour ReadMe.txt" />
+     <None Include="Assets\Gravestones and Obelisks\Assets Mobile\Mobile Prefabs\Recolour ReadMe.txt" />
  <Reference Include="UnityEditor.Advertisements">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Advertisements/Editor/UnityEditor.Advertisements.dll</HintPath>
  </Reference>

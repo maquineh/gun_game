@@ -9,6 +9,7 @@ public class Bullets : MonoBehaviour {
     float lifeTime = 3;
     float skinWidth = .1f;
 	public LayerMask collisionMask;
+    public LayerMask[] collisionsMasks;
 	public void SetSpeed(float _speed){
 		speed = _speed;
 	}

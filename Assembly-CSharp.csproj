@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\Bullets.cs" />
+     <Compile Include="Assets\Scripts\Cartucho.cs" />
      <Compile Include="Assets\Scripts\Enemy.cs" />
      <Compile Include="Assets\Scripts\GameUI.cs" />
      <Compile Include="Assets\Scripts\Gun.cs" />
@@ -57,6 +58,8 @@
      <Compile Include="Assets\Scripts\PlayerController.cs" />
      <Compile Include="Assets\Scripts\Spawner.cs" />
      <Compile Include="Assets\Scripts\Utility.cs" />
+     <None Include="Assets\Gravestones and Obelisks\Assets Standard\Prefabs\Recolour ReadMe.txt" />
+     <None Include="Assets\Gravestones and Obelisks\Assets Mobile\Mobile Prefabs\Recolour ReadMe.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

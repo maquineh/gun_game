@@ -8,6 +8,8 @@ public class Spawner : MonoBehaviour {
 	public Wave[] waves;
 	public Enemy enemy;
 
+    public Enemy[] enemies;
+
 	Wave currentWave;
 	int currentWaveNumber;
 
@@ -110,7 +112,9 @@ public class Spawner : MonoBehaviour {
             yield return null;
         }
 
-        Enemy spawnEnemy = Instantiate(enemy, spawnTile.position + Vector3.up, Quaternion.identity) as Enemy;
+        int valor = Random.Range(0, 6);
+
+        Enemy spawnEnemy = Instantiate(enemies[valor], spawnTile.position + Vector3.up, Quaternion.identity) as Enemy;
         spawnEnemy.OnDeath += OnDeathEnemy;
 
 		spawnEnemy.SetCharacteristics(currentWave.moveSpeed, currentWave.hitsToKillPlayer, 

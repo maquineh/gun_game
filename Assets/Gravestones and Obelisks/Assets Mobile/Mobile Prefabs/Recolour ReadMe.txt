@@ -1,0 +1,1 @@
+It is recommended to only use one color scheme at a time. Using multiple skins simultaneously will result in additional atlases being loaded at once, increasing the texture load and memory footprint.
